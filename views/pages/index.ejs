@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Trade Market Processor</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+    </head>
+    <body>
+        
+        <div class="container">
+        <h1>Trade Market Processor</h1>
+        
+        <p>There are <%= count %> transactions processed so far.</p>
+        <section id="main">
+            <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Currency From</th>
+                    <th scope="col">Currency To</th>
+                    <th scope="col">Amount Sold</th>
+                    <th scope="col">Amount Bought</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Country</th>
+                </tr>
+            </thead>
+            
+            <% for (var i = 0; i < txns.length; i++) { %>
+                <tr>
+                    <td scope="row"><%= txns[i].id %></td>
+                    <td><%= txns[i].user_id %></td>
+                    <td><%= txns[i].currency_from %></td>
+                    <td><%= txns[i].currency_to %></td>
+                    <td><%= txns[i].amount_sell %></td>
+                    <td><%= txns[i].amount_buy %></td>
+                    <td><%= txns[i].rate %></td>
+                    <td><%= txns[i].timestamp %></td>
+                    <td><%= txns[i].country %></td>
+                </tr>    
+            <% } %>
+            </table>
+
+            <nav aria-label="Page navigation">
+            <ul class="pagination">
+                    
+                <li class="page-item <% if (currpage == 1) { %> disabled <% } %>">                    
+                    <a class="page-link" href="#">Previous</a>
+                </li>
+
+                <% for (var i = 1; i <= pages; i++) { %>
+                    <li class="page-item <% if (currpage == i) { %> active <% } %>">
+                        <a class="page-link" href="/?p=<%= i %>"><%= i %></a>
+                    </li>
+                <% } %>
+
+                <li class="page-item <% if (currpage >= pages) { %> disabled <% } %>">                    
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+            </nav>
+        </section>       
+		</div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
