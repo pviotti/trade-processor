@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var sqlite = require('sqlite3');
 const path = require('path');
 var favicon = require('serve-favicon');
 var env = require('dotenv').load();
@@ -45,29 +44,27 @@ app.get('/', function (req, res) {
 
     let limit = 10;   // number of records per page
     let offset = 0;
-    models.txn.findAndCountAll()
-        .then((data) => {
+    models.txn.count()
+        .then(c => {
             let page = req.query.page || 1;      // page number
-            let pages = Math.ceil(data.count / limit);
+            let pages = Math.ceil(c / limit);
             offset = limit * (page - 1);
 
             models.txn.findAll({
                 limit: limit,
-                offset: offset
+                offset: offset,
+                order: [['timestamp', 'DESC']]
             })
                 .then((txns) => {
                     res.render('pages/index', {
                         txns: txns,
-                        count: data.count,
+                        count: c,
                         pages: pages,
                         currpage: page
                     });
                 });
         });
 });
-// .catch(function (error) {
-//     res.status(500).send('Internal Server Error');
-// });
 
 app.listen(port, function () {
     console.log('app listening on port: ' + port);

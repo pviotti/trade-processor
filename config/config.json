@@ -3,6 +3,7 @@
         "username": "",
         "password": null,
         "database": "",
+        "logging": true,
         "host": "localhost",
         "dialect": "sqlite",
         "storage": "./data/database.sqlite"
@@ -11,6 +12,7 @@
         "username": "",
         "password": null,
         "database": "",
+        "logging": false,
         "host": "localhost",
         "dialect": "sqlite",
         "storage": "./data/database.sqlite"
@@ -19,6 +21,7 @@
         "username": "",
         "password": null,
         "database": "",
+        "logging": false,
         "host": "localhost",
         "dialect": "sqlite",
         "storage": "./data/database.sqlite"

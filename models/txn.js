@@ -6,7 +6,7 @@ module.exports = function(sequelize, Sequelize) {
         amount_sell: Sequelize.FLOAT,
         amount_buy: Sequelize.FLOAT,
         rate: Sequelize.FLOAT,
-        timestamp: Sequelize.DATE,
+        timestamp: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
         country: Sequelize.STRING
     },{
         timestamps: false
