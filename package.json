@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --timeout 10000 --exit",
-    "start": "node app.js"
+    "start": "node app.js",
+    "live": "nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -13,6 +14,7 @@
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "sequelize": "^4.37.6",
+    "serve-favicon": "^2.5.0",
     "sqlite3": "^3.1.13"
   },
   "author": "",

@@ -2,14 +2,15 @@ var express = require('express');
 var Txn = require('../models').txn;
 var router = express.Router();
 
-router.get('/', function(req, res){
+router.get('/', function (req, res) {
     //console.log('Getting all transactions');
     Txn.findAll().then(txn => {
         res.status(200).json(txn);
     });
 });
 
-router.post('/', function(req, res){
+router.post('/', function (req, res) {
+    console.log(req.body);
     Txn.create({
         user_id: req.body.userId,
         currency_from: req.body.currencyFrom,
