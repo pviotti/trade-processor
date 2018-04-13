@@ -2,6 +2,9 @@ module.exports = {
   apps: [{
     name: 'trade-processor',
     script: './app.js'
+  }, { 
+    name: 'data-processor',
+    script: './data-proc.js'
   }],
   deploy: {
     production: {
