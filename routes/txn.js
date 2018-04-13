@@ -23,7 +23,7 @@ router.post('/', function (req, res) {
         timestamp: req.body.timePlaced,
         country: req.body.originatingCountry
     }).then(txn => {
-        res.status(200).json(txn);
+        res.status(200).end();
     }).error(err => {
         res.status(405).json('Error has occured');
     });
