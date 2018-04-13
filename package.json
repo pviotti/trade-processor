@@ -6,6 +6,8 @@
   "scripts": {
     "test": "mocha --timeout 10000 --exit",
     "start": "node app.js",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production",
     "live": "nodemon app.js"
   },
   "dependencies": {
@@ -18,5 +20,8 @@
     "sqlite3": "^4.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "pm2": "^2.10.2"
+  }
 }
