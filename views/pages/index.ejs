@@ -5,28 +5,26 @@
             <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Timestamp</th>
                     <th scope="col">User Id</th>
                     <th scope="col">Currency From</th>
                     <th scope="col">Currency To</th>
                     <th scope="col">Amount Sold</th>
                     <th scope="col">Amount Bought</th>
                     <th scope="col">Rate</th>
-                    <th scope="col">Timestamp</th>
                     <th scope="col">Country</th>
                 </tr>
             </thead>
             
             <% for (var i = 0; i < txns.length; i++) { %>
                 <tr>
-                    <td scope="row"><%= txns[i].id %></td>
+                    <td><%= txns[i].timestamp %></td>
                     <td><%= txns[i].user_id %></td>
                     <td><%= txns[i].currency_from %></td>
                     <td><%= txns[i].currency_to %></td>
                     <td><%= txns[i].amount_sell %></td>
                     <td><%= txns[i].amount_buy %></td>
                     <td><%= txns[i].rate %></td>
-                    <td><%= txns[i].timestamp %></td>
                     <td><%= txns[i].country %></td>
                 </tr>    
             <% } %>

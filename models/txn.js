@@ -1,17 +1,20 @@
-module.exports = function(sequelize, Sequelize) {
-    var TransactionSchema = sequelize.define("txn", {
+module.exports = function (sequelize, Sequelize) {
+    var transactionSchema = sequelize.define("txn", {
         user_id: Sequelize.STRING,
         currency_from: Sequelize.STRING,
         currency_to: Sequelize.STRING,
         amount_sell: Sequelize.FLOAT,
         amount_buy: Sequelize.FLOAT,
         rate: Sequelize.FLOAT,
-        timestamp: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+        timestamp: {
+            type: Sequelize.DATE,
+            defaultValue: Sequelize.NOW
+        },
         country: Sequelize.STRING
-    },{
-        timestamps: false
-    });
-    return TransactionSchema;
+    }, {
+            timestamps: false
+        });
+    return transactionSchema;
 }
 
 

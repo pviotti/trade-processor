@@ -2,6 +2,7 @@ var express = require('express');
 var Txn = require('../models').txn;
 var router = express.Router();
 
+// GET all transactions (!! not scalable, just for debug)
 router.get('/', function (req, res) {
     //console.log('Getting all transactions');
     Txn.findAll().then(txn => {
@@ -9,6 +10,7 @@ router.get('/', function (req, res) {
     });
 });
 
+// POST a new transaction
 router.post('/', function (req, res) {
     console.log(req.body);
     Txn.create({

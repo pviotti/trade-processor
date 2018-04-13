@@ -8,13 +8,8 @@ var port = process.env.PORT || 8080;
 
 // models
 var models = require("./models");
-
-// routes
-var txnRoute = require('./routes/txn');
-
-// sync database
 models.sequelize.sync().then(function () {
-    console.log('connected to database')
+    console.log('Database synchronized.')
 }).catch(function (err) {
     console.log(err)
 });
@@ -25,7 +20,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 // transaction API routes
+// routes
+var txnRoute = require('./routes/txn');
+var statRoute = require('./routes/stat');
 app.use('/txn', txnRoute);
+app.use('/stat', statRoute);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
@@ -34,7 +33,6 @@ app.set('view engine', 'ejs');
 app.get('/submit', function (req, res) {
     res.render('pages/submit');
 });
-
 app.get('/graphs', function (req, res) {
     res.render('pages/graphs');
 });
