@@ -19,12 +19,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-// transaction API routes
-// routes
+// API routes
 var txnRoute = require('./routes/txn');
 var statRoute = require('./routes/stat');
-app.use('/txn', txnRoute);
-app.use('/stat', statRoute);
+app.use('/api/txn', txnRoute);
+app.use('/api/stat', statRoute);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
