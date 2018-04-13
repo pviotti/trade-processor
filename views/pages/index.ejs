@@ -1,6 +1,7 @@
 <% include ../partials/header %>    
         <h3>Transactions</h3>    
-        <p>There are <%= count %> transactions processed so far.</p>
+        <p>Welcome to the Trade Market Processor. <br/>
+            The table below lists the currency exchange transactions processed so far, for a total of <%= count %>.</p>
         <section id="main">
             <table class="table table-hover">
             <thead class="thead-dark">
@@ -34,7 +35,7 @@
             <ul class="pagination">
                     
                 <li class="page-item <% if (currpage == 1) { %> disabled <% } %>">                    
-                    <a class="page-link" href="#">Previous</a>
+                    <a class="page-link" href="/?p=<%= currpage-1  %>">Previous</a>
                 </li>
 
                 <% for (var i = 1; i <= pages; i++) { %>
@@ -44,7 +45,7 @@
                 <% } %>
 
                 <li class="page-item <% if (currpage >= pages) { %> disabled <% } %>">                    
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link" href="/?p=<%= currpage+1  %>">Next</a>
                 </li>
             </ul>
             </nav>

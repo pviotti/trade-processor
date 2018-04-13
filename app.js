@@ -38,7 +38,6 @@ app.get('/graphs', function (req, res) {
 
 // index path
 app.get('/', function (req, res) {
-
     let limit = 10;   // number of records per page
     let offset = 0;
     models.txn.count()
