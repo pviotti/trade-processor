@@ -1,4 +1,4 @@
-# Market Trade Processor
+# Market Trade Processor [![Build Status](https://travis-ci.org/pviotti/trade-processor.svg?branch=master)](https://travis-ci.org/pviotti/trade-processor)
 
 This is a study / toy implementation of a web-based currency trading processor.  
 It consumes trade messages via an HTTP endpoint, processes those messages and delivers a visualization 
