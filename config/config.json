@@ -15,7 +15,7 @@
         "logging": false,
         "host": "localhost",
         "dialect": "sqlite",
-        "storage": "./data/database.sqlite"
+        "storage": ":memory:"
     },
     "production": {
         "username": "",

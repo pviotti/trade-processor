@@ -1,8 +1,11 @@
+process.env.NODE_ENV = 'test';
+
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var app = require('../app');
 var should = chai.should();
-var Transaction = require('../models').txn;
+var models = require('../models')
+var Transaction = models.txn;
 
 chai.use(chaiHttp);
 
@@ -18,12 +21,14 @@ var newTxn = {
 
 describe('Transactions', () => {
     beforeEach((done) => {
-        // Empty the transaction table before each test
-        Transaction.destroy({
-            where: {},
-            truncate: true
+        models.sequelize.sync().then(function () {
+            // Empty the transaction table before each test
+            Transaction.destroy({
+                where: {},
+                truncate: true
+            });
+            done();
         });
-        done();
     });
 
     describe('/GET transactions', () => {
