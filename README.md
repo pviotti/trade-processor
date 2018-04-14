@@ -40,7 +40,7 @@ such as [bombardier][bombardier] and [sniper][sniper].
 
 ### Data visualization
 
-![Country of origin distribution map](screenshot.png)
+![Country of origin distribution map](doc/screenshot.png)
 
 In its current implementation, the Trade Porcessor feature a map-based visualization
 of the country of origin of the transactions processed so far. 
