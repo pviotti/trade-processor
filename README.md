@@ -1,11 +1,11 @@
-# Market Trade Processor
+## Market Trade Processor
 
 This is a study / toy implementation of a web-based currency trading processor.  
 It consumes trade messages via an HTTP endpoint, processes those messages and delivers a visualization 
 of the consumed messages.
 
 
-## Overview
+### Overview
 
 ![Architecture, overview](doc/arch-simple.jpg)
 
@@ -19,7 +19,7 @@ Each message adding a transaction has a structure similar to the following JSON:
     {"userId": "134256", "currencyFrom": "EUR", "currencyTo": "GBP", "amountSell": 1000, "amountBuy": 747.10, "rate": 0.7471, "timePlaced" : "24-JAN-15 10:27:44", "originatingCountry" : "FR"}
 
 
-## Single host performance
+### Single host performance
 
 This simple architecture deployed on a single `t2.micro` instance of Amazon EC2 allows 
 to attain the decent performance of about 130 req/s, as tested with load test tools 
@@ -38,17 +38,17 @@ such as [bombardier][bombardier] and [sniper][sniper].
     Throughput:    55.85KB/s
 
 
-## Data visualization
+### Data visualization
 
-![Country of origin distribution map](doc/screenshot.jpg)
+![Country of origin distribution map](screenshot.png)
 
 In its current implementation, the Trade Porcessor feature a map-based visualization
-of the country of origin of the transactions processed so far.  
+of the country of origin of the transactions processed so far. 
 It would be fairly easy to add further graphs to get more insights from the 
 processed data.
 
 
-## Notes
+### Notes
 
 Several aspects of this implementation are deliberately simplistic or suboptimal for 
 large scale deployments, due to the nature and goals of this project.
