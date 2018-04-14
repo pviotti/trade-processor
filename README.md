@@ -1,8 +1,8 @@
 # Market Trade Processor [![Build Status](https://travis-ci.org/pviotti/trade-processor.svg?branch=master)](https://travis-ci.org/pviotti/trade-processor)
 
-This is a study / toy implementation of a web-based currency trading processor.  
+This is a study implementation of a web-based currency trading processor.  
 It consumes trade messages via an HTTP endpoint, processes those messages and delivers a visualization 
-of the consumed messages.
+of insights based on the consumed messages.
 
 
 ## Overview
@@ -51,7 +51,7 @@ such as [bombardier][bombardier] and [sniper][sniper].
 
 ![Country of origin distribution map](doc/screenshot.png)
 
-In its current implementation, the Trade Porcessor feature a map-based visualization
+The current implementation of the Trade Processor features a map-based visualization
 of the country of origin of the transactions processed so far. 
 It would be fairly easy to add further graphs to get more insights from the 
 processed data.
@@ -74,8 +74,9 @@ In the following we address each of them and hint at possible improvements.
  such as RabbitMQ, Kafka, etc. Clearly this would trade an improved scalability for an increased
  complexity of the system and of its possible failure scenarios.
  
- * *Data warehouse and caching*. Using a separate data warehouse store would ease the load on the main database - at 
- the cost of adding (offline) coordination and managing consistency issues between the two.
+ * *Data warehouse and caching*. Using a separate data warehouse store would ease the load 
+ on the main database - at the cost of adding (offline) coordination and managing consistency 
+ issues between the two. 
  Similarly, a caching layer (e.g., Redis, memcached) would help improving the frontend performance.
 
  * *Security*. Clearly, for a currency exchange processor security is paramount.
@@ -85,6 +86,8 @@ In the following we address each of them and hint at possible improvements.
  request throttling - which we did not in the present version 
  (despite the availability of [simple solutions][rate-limit] for express.js) 
  to facilitate the execution of load tests.
+ Another obvious security measure is about separating the frontend dashboard server 
+ from the API server, which have two different classes of users.
 
 Ultimately, the design choices involved in a similar project depend on the 
 goals and the assumptions about performance, fault tolerance and correctness.

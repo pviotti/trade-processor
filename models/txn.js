@@ -1,3 +1,4 @@
+// Model for the "txn" table, holding transaction records.
 module.exports = function (sequelize, Sequelize) {
     var transactionSchema = sequelize.define("txn", {
         user_id: Sequelize.STRING,
@@ -18,13 +19,15 @@ module.exports = function (sequelize, Sequelize) {
 }
 
 
-// CREATE TABLE txn (
-//     user_id VARCHAR(30),
-//     currency_from VARCHAR(5),
-//     currency_to VARCHAR(5),
-//     amount_sell FLOAT,
-//     amount_buy FLOAT,
-//     rate FLOAT,
-//     timestamp VARCHAR(30),
-//     country VARCHAR(30)
-// );
+/*
+CREATE TABLE txn (
+    user_id VARCHAR(30),
+    currency_from VARCHAR(5),
+    currency_to VARCHAR(5),
+    amount_sell FLOAT,
+    amount_buy FLOAT,
+    rate FLOAT,
+    timestamp VARCHAR(30),
+    country VARCHAR(30)
+);
+*/

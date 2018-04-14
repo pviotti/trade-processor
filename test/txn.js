@@ -32,7 +32,7 @@ describe('Transactions', () => {
     });
 
     describe('/GET transactions', () => {
-        it('it should GET all the transactions', (done) => {
+        it('Should get all the transactions', (done) => {
             chai.request(app).get('/api/txn').end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
