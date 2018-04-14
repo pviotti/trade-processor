@@ -18,6 +18,15 @@ Each message adding a transaction has a structure similar to the following JSON:
 
     {"userId": "134256", "currencyFrom": "EUR", "currencyTo": "GBP", "amountSell": 1000, "amountBuy": 747.10, "rate": 0.7471, "timePlaced" : "24-JAN-15 10:27:44", "originatingCountry" : "FR"}
 
+The Trade Processor supports the following API:
+
+    GET /api/txn
+        Get all the transactions processed so far [for debug purposes - may not scale well].
+
+    POST /api/txn 
+        {"userId": "134256", "currencyFrom": "EUR", .. [see above]}
+        Submit a new transaction.
+
 
 ## Single host performance
 
@@ -69,6 +78,14 @@ In the following we address each of them and hint at possible improvements.
  the cost of adding (offline) coordination and managing consistency issues between the two.
  Similarly, a caching layer (e.g., Redis, memcached) would help improving the frontend performance.
 
+ * *Security*. Clearly, for a currency exchange processor security is paramount.
+ In a production-ready version of this application, we would enable HTTPS support for the API
+ and, depending on the needs, implement an authentication protocol, possibly based on [tokens][token-auth].
+ Moreover, to thwart possible DoS attacks and abuses, we'd have to implement some 
+ request throttling - which we did not in the present version 
+ (despite the availability of [simple solutions][rate-limit] for express.js) 
+ to facilitate the execution of load tests.
+
 Ultimately, the design choices involved in a similar project depend on the 
 goals and the assumptions about performance, fault tolerance and correctness.
 
@@ -81,3 +98,5 @@ WTFPL.
  [sqlite]: https://www.sqlite.org/faq.html#q5
  [bombardier]: https://github.com/codesenberg/bombardier
  [sniper]: https://github.com/btfak/sniper
+ [token-auth]: https://scotch.io/bar-talk/the-ins-and-outs-of-token-based-authentication
+ [rate-limit]: https://www.npmjs.com/package/express-rate-limit
