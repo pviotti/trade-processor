@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
     let offset = 0;
     models.txn.count()
         .then(c => {
-            let page = req.query.page || 1;      // page number
+            let page = req.query.p || 1;      // page number
             let pages = Math.ceil(c / limit);
             offset = limit * (page - 1);
 
