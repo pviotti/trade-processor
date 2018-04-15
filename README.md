@@ -27,6 +27,15 @@ The Trade Processor supports the following API:
         {"userId": "134256", "currencyFrom": "EUR", .. [see above]}
         Submit a new transaction.
 
+    GET /api/stat/country
+        Get JSON object containing the number of transactions for each country of origin of the processed transactions.
+
+    GET /api/stat/currencyfrom
+        Get JSON object containing the number of transactions for each origin currency of the processed transactions.
+
+    GET /api/stat/currencyto
+        Get JSON object containing the number of transactions for each target currency of the processed transactions.
+
 
 ## Single host performance
 
@@ -52,8 +61,9 @@ such as [bombardier][bombardier] and [sniper][sniper].
 ![Country of origin distribution map](doc/screenshot.png)
 
 The current implementation of the Trade Processor features a map-based visualization
-of the country of origin of the transactions processed so far. 
-It would be fairly easy to add further graphs to get more insights from the 
+of the country of origin, and a couple of pie charts showing the percentage of original 
+and target currencies of the transactions processed so far.
+It would be fairly easy to add other graphs that expose further insights from the 
 processed data.
 
 
