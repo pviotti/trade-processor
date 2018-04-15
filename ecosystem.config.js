@@ -9,7 +9,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: '34.240.11.31',
+      host: '52.50.11.143',
       key: '~/.ssh/trade-processor.pem',
       ref: 'origin/master',
       repo: 'git@github.com:pviotti/trade-processor.git',

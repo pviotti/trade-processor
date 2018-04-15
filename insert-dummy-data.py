@@ -4,7 +4,7 @@
 import json, random, string
 from urllib import request, parse
 
-#URL='http://34.240.11.31/api/txn'
+#URL='http://52.50.11.143/api/txn'
 URL='http://localhost:8080/api/txn'
 
 NUM_REQ=30
